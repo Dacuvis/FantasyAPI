@@ -7,10 +7,11 @@ RUN apt-get update && \
     luarocks install luasocket && \
     luarocks install dkjson
 
+WORKDIR /app
+
 # Copy project
 COPY data/c.json /app
 COPY src/modules/Server.lua /app
-WORKDIR /app
 
 # Expose port yang Railway pakai
 EXPOSE 8080
