@@ -10,7 +10,7 @@ RUN mkdir -p /usr/local/share/lua/5.4
 # download dkjson
 RUN wget https://raw.githubusercontent.com/LuaDist/dkjson/master/dkjson.lua -O /usr/local/share/lua/5.4/dkjson.lua
 
-COPY src/data/c.json /app/c.json
+COPY data/c.json /app/c.json
 
 # copy main.lua ke dalam container
 COPY src/main.lua /app/main.lua
