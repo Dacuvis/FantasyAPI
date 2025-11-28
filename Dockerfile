@@ -11,6 +11,6 @@ RUN mkdir -p /usr/local/share/lua/5.4
 RUN wget https://raw.githubusercontent.com/LuaDist/dkjson/master/dkjson.lua -O /usr/local/share/lua/5.4/dkjson.lua
 
 # copy main.lua ke dalam container
-COPY main.lua /app/main.lua
+COPY src/main.lua /app/main.lua
 
 CMD ["lua5.4", "main.lua"]
