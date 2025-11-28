@@ -5,6 +5,12 @@ local json = require("dkjson")
 local url = "http://127.0.0.1:8080/"
 
 local file = http.request(url)
+
+if not file then
+    print("Gagal mengambil data dari server!")
+    return
+end
+
 local content,err = json.decode(file)
 
 if not content then
