@@ -1,5 +1,6 @@
 # FantasyAPI
-    API untuk Char,Items,Clan,Tempat
+    
+API untuk Char,Items,Clan,Tempat
 
 ## 🔹 Endpoint
 >http://127.0.0.1:8080
