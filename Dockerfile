@@ -1,18 +1,18 @@
-FROM alpine:latest
+# Gunakan Ubuntu minimal
+FROM ubuntu:22.04
 
-RUN apk update && apk add lua5.4 lua5.4-socket wget
+# Install Lua & luarocks
+RUN apt-get update && \
+    apt-get install -y lua5.4 luarocks curl && \
+    luarocks install luasocket && \
+    luarocks install dkjson
 
+# Copy project
+COPY . /app
 WORKDIR /app
 
-# buat folder untuk module luar
-RUN mkdir -p /usr/local/share/lua/5.4
+# Expose port yang Railway pakai
+EXPOSE 8080
 
-# download dkjson
-RUN wget https://raw.githubusercontent.com/LuaDist/dkjson/master/dkjson.lua -O /usr/local/share/lua/5.4/dkjson.lua
-
-COPY data/c.json /app/c.json
-
-# copy main.lua ke dalam container
-COPY src/main.lua /app/main.lua
-
-CMD ["lua5.4", "main.lua"]
+# Jalankan server.lua
+CMD ["lua5.4", "Server.lua"]
